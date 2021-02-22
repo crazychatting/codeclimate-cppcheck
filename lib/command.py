@@ -36,6 +36,9 @@ class Command:
                 command.append('--force')
             else:
                 command.append('--max-configs={}'.format(self.config.get('max_configs')))
+        
+        if self.config.get('jobs'):
+            command.append('-j={}'.format(self.config.get('jobs')))
 
         if self.config.get('inconclusive', 'true') == 'true':
             command.append('--inconclusive')
